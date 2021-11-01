@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import { Col, Form, FormControl, FormGroup, FormLabel, Button } from 'react-bootstrap';
+import web3 from 'web3';
 
 function AddChild({Contract,myAccount}) {
 
     const addChild = async (e) => {
         e.preventDefault();
-        Contract.methods.addChild(addr, time).send({ from: myAccount, value:Number(eth) }).then(r=>console.log(r)).catch(err=>console.log(err.message));
-
+        Contract.methods.addChild(addr, time).send({ from: myAccount, value: web3.utils.toWei(eth) }).then(r=>console.log(r)).catch(err=>console.log(err));
     }
 
     const [addr, setAddr] = useState();
